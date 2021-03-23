@@ -71,6 +71,16 @@ namespace MoneyTool
                 summaInRub < othersummaInRub ? -1 : 0;
         }
 
+        /// <summary>Возвращает сумму в рублях</summary>
+        public static Money operator +(Money a, Money b)
+        {
+            return new Money
+            {
+                Summa = Math.Round(a.Summa * CurrencyRate(a.Currency), 2) + Math.Round(b.Summa * CurrencyRate(b.Currency), 2),
+                Currency = Currency.RUB
+            };
+        }
+
         //public override bool Equals(object obj)
         //{
         //    return base.Equals(obj);
