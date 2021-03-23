@@ -13,7 +13,7 @@ namespace MoneyTool
         public Currency Currency { get; set; }
 
         // Возвращает курс в рублях для валюты, передаваемой как параметр
-        decimal currencyRate(Currency currency) // по-хорошему нужен II параметр DateTime date
+        static decimal currencyRate(Currency currency) // по-хорошему нужен II параметр DateTime date
                                                 // и, в зависимости от даты, динамический расчёт курса (на основе БД курсов валют)
         {
             switch (currency)
@@ -69,6 +69,16 @@ namespace MoneyTool
 
             return summaInRub > othersummaInRub ? 1 :
                 summaInRub < othersummaInRub ? -1 : 0;
+        }
+
+        /// <summary>Возвращает сумму в рублях</summary>
+        public static Money operator +(Money a, Money b)
+        {
+            return new Money
+            {
+                Summa = Math.Round(a.Summa * currencyRate(a.Currency), 2) + Math.Round(b.Summa * currencyRate(b.Currency), 2),
+                Currency = Currency.RUB
+            };
         }
 
         //public override bool Equals(object obj)
