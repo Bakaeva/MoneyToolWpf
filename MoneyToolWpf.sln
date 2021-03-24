@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyToolWpf", "MoneyToolWpf\MoneyToolWpf.csproj", "{41AD1782-5438-498C-9096-D20D5D0C9D0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{FB475EE6-832A-4F6D-B049-FB44F4452AEB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{41AD1782-5438-498C-9096-D20D5D0C9D0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41AD1782-5438-498C-9096-D20D5D0C9D0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41AD1782-5438-498C-9096-D20D5D0C9D0B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FB475EE6-832A-4F6D-B049-FB44F4452AEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB475EE6-832A-4F6D-B049-FB44F4452AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FB475EE6-832A-4F6D-B049-FB44F4452AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FB475EE6-832A-4F6D-B049-FB44F4452AEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
