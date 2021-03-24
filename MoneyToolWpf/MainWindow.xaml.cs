@@ -1,19 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using MoneyToolWpf.UserControls;
-
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MoneyToolWpf
 {
@@ -27,44 +14,70 @@ namespace MoneyToolWpf
             InitializeComponent();
             
             cbCurrency1.ItemsSource = Enum.GetValues(typeof(MoneyToolWpf.Currency));
-            cbCurrency2.ItemsSource = Enum.GetValues(typeof(MoneyToolWpf.Currency));
-            cbCurrency1.SelectedIndex = cbCurrency2.SelectedIndex = 2;
+            cbCurrency2.ItemsSource = Enum.GetValues(typeof(MoneyToolWpf.Currency));            
             tbSumma1.Text = tbSumma2.Text = "0";
-            cbCurrency1.SelectionChanged += new System.Windows.Controls.SelectionChangedEventHandler(this.cbCurrency1_SelectionChanged);
-            tbSumma1.TextChanged += new System.Windows.Controls.TextChangedEventHandler(this.tbSumma1_TextChanged);
-            cbCurrency2.SelectionChanged += new System.Windows.Controls.SelectionChangedEventHandler(this.cbCurrency2_SelectionChanged);
-            tbSumma2.TextChanged += new System.Windows.Controls.TextChangedEventHandler(this.tbSumma2_TextChanged);
+            cbCurrency1.SelectedIndex = cbCurrency2.SelectedIndex = 2; // RUB
+            label1.Content = label2.Content = labelCompare.Content = "";
+
+            cbCurrency1.SelectionChanged += cbCurrency_SelectionChanged; //new System.Windows.Controls.SelectionChangedEventHandler(this.cbCurrency1_SelectionChanged);
+            tbSumma1.TextChanged += tbSumma_TextChanged;
+            cbCurrency2.SelectionChanged += cbCurrency_SelectionChanged;
+            tbSumma2.TextChanged += tbSumma_TextChanged;
+            btnCompare.Click += btnCompare_Click;
         }
 
-        void label1Refresh()
+        decimal summa1 = 0.00M;
+        decimal summa2 = 0.00M;
+
+        void summa1Changed()
         {
-            var summa = Math.Round(Int32.Parse(tbSumma1.Text) * CurrencyExtension.CurrencyRateInRubles((Currency)cbCurrency1.SelectedIndex), 2);
-            label1.Content = $"{summa} ₽";
+            try
+            {
+                summa1 = Math.Round(Int32.Parse(tbSumma1.Text) * CurrencyExtension.CurrencyRateInRubles((Currency)cbCurrency1.SelectedIndex), 2);
+            }
+            catch
+            {
+                summa1 = 0.00M;
+            }
+            label1.Content = $"{summa1} ₽";
+            labelCompare.Content = "";
         }
-        void label2Refresh()
+        void summa2Changed()
         {
-            var summa = Math.Round(Int32.Parse(tbSumma2.Text) * CurrencyExtension.CurrencyRateInRubles((Currency)cbCurrency2.SelectedIndex), 2);
-            label2.Content = $"{summa} ₽";
+            try
+            {
+                summa2 = Math.Round(Int32.Parse(tbSumma2.Text) * CurrencyExtension.CurrencyRateInRubles((Currency)cbCurrency2.SelectedIndex), 2);
+            }
+            catch
+            {
+                summa2 = 0.00M;
+            }
+            label2.Content = $"{summa2} ₽";
+            labelCompare.Content = "";
         }
 
-        private void cbCurrency1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void tbSumma_TextChanged(object sender, TextChangedEventArgs e)
         {
-            label1Refresh();
+            if ((sender as TextBox).Name == "tbSumma1")
+                summa1Changed();
+            else
+                summa2Changed();
         }
 
-        private void tbSumma1_TextChanged(object sender, TextChangedEventArgs e)
+        private void cbCurrency_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            label1Refresh();
-        }
+            if ((sender as ComboBox).Name == "cbCurrency1")
+                summa1Changed();
+            else
+                summa2Changed();
+        } 
 
-        private void cbCurrency2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void btnCompare_Click(object sender, RoutedEventArgs e)
         {
-            label2Refresh();
-        }
-
-        private void tbSumma2_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            label2Refresh();
+            labelCompare.Content =
+                summa1 < summa2 ? "<" :
+                summa1 > summa2 ? ">" :
+                "==";
         }
     }
 }
