@@ -47,15 +47,16 @@ namespace MoneyToolWpf
             if (a == null || b == null) return null;
             return new Money
             {
-                Summa = Math.Round(a.Summa * CurrencyRate(a.Currency), 2) + Math.Round(b.Summa * CurrencyRate(b.Currency), 2),
+                Summa = Math.Round(a.Summa * CurrencyExtension.CurrencyRateInRubles(a.Currency), 2)
+                + Math.Round(b.Summa * CurrencyExtension.CurrencyRateInRubles(b.Currency), 2),
                 Currency = Currency.RUB
             };
         }
 
-        //public override bool Equals(object obj)
-        //{
-        //    return base.Equals(obj);
-        //}
+        public override bool Equals(object obj)
+        {
+            return (obj is Money && this == (obj as Money));
+        }
 
         //public override int GetHashCode()
         //{
@@ -66,26 +67,13 @@ namespace MoneyToolWpf
         public int CompareTo(Money money)
         {
             if (this == null || money == null)
-                throw new Exception("Сравниваемые экземпляры типа Money не могут быть равны null!");
+                throw new ArgumentNullException("Сравниваемые экземпляры типа Money не могут быть равны null!");
 
-            decimal summaInRub = Math.Round(Summa * CurrencyRate(Currency), 2);
-            decimal othersummaInRub = Math.Round(money.Summa * CurrencyRate(money.Currency), 2);
+            decimal summaInRub = Math.Round(Summa * CurrencyExtension.CurrencyRateInRubles(Currency), 2);
+            decimal othersummaInRub = Math.Round(money.Summa * CurrencyExtension.CurrencyRateInRubles(money.Currency), 2);
 
             return summaInRub > othersummaInRub ? 1 :
                 summaInRub < othersummaInRub ? -1 : 0;
-        }
-
-        /// <summary>Возвращает курс в рублях для валюты, передаваемой как параметр</summary>
-        public static decimal CurrencyRate(Currency currency) // по-хорошему нужен II параметр DateTime date
-                                                              // и, в зависимости от даты, динамический расчёт курса (на основе БД курсов валют)
-        {
-            switch (currency)
-            {
-                case Currency.EUR: return 88.1173M;
-                case Currency.USD: return 73.6582M;
-                case Currency.RUB: return 1;
-                default: return 1;
-            }
         }
     }
 
