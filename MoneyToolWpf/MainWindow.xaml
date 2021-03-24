@@ -12,8 +12,7 @@
         <Label Name="label1" Content="Label" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="175"/>
         <TextBox Name="tbSumma2" HorizontalAlignment="Left" Height="26" Margin="255,13,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100"/>
         <ComboBox Name="cbCurrency2" HorizontalAlignment="Left" Height="26" Margin="360,13,0,0" VerticalAlignment="Top" Width="70"/>
-        <Label Name="label2" Content="Label" HorizontalAlignment="Left" Margin="255,41,0,0" VerticalAlignment="Top" Width="175"/>
-        <Button Name="btnCompare" Content="Сравнить" HorizontalAlignment="Left" Height="24" Margin="151,72,0,0" VerticalAlignment="Top" Width="130"/>
+        <Label Name="label2" Content="Label" HorizontalAlignment="Left" Margin="255,41,0,0" VerticalAlignment="Top" Width="175"/>        
         <Label Name="labelCompare" Content="Label" HorizontalAlignment="Left" Height="35" Margin="201,5,0,0" VerticalAlignment="Top" Width="45" FontWeight="Bold" FontSize="20"/>
 
     </Grid>
