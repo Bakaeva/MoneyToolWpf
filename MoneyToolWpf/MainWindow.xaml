@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoneyToolWpf"
         mc:Ignorable="d"
-        Title="Инструмент для работы с валютами" Height="450" Width="800">
-    <Grid>
-        
+        Title="Инструмент для работы с валютами" Height="150" Width="450">
+    <Grid Margin="0,0,0,0">
+        <TextBox Name="tbSumma1" HorizontalAlignment="Left" Height="26" Margin="10,13,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100"/>
+        <ComboBox Name="cbCurrency1" HorizontalAlignment="Left" Height="26" Margin="115,13,0,0" VerticalAlignment="Top" Width="70"/>
+        <Label Name="label1" Content="Label" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="175"/>
+        <TextBox Name="tbSumma2" HorizontalAlignment="Left" Height="26" Margin="255,13,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100"/>
+        <ComboBox Name="cbCurrency2" HorizontalAlignment="Left" Height="26" Margin="360,13,0,0" VerticalAlignment="Top" Width="70"/>
+        <Label Name="label2" Content="Label" HorizontalAlignment="Left" Margin="255,41,0,0" VerticalAlignment="Top" Width="175"/>
+        <Button Content="Сравнить" HorizontalAlignment="Left" Height="24" Margin="151,72,0,0" VerticalAlignment="Top" Width="130"/>
+
     </Grid>
 </Window>
