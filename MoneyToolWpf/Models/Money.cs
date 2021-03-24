@@ -77,7 +77,7 @@ namespace MoneyToolWpf
         }
     }
 
-    public static class MoneyExtentions
+    public static class MoneyExtensions
     {
         public static Money Add(Money a, Money b)
         {
