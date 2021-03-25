@@ -39,7 +39,7 @@ namespace MoneyToolWpf
             {
                 try
                 {
-                    summa1 = Math.Round(Int32.Parse(tbSumma1.Text) * CurrencyExtension.CurrencyRateInRubles((Currency)cbCurrency1.SelectedIndex), 2);
+                    summa1 = Math.Round(Int32.Parse(tbSumma1.Text) * CurrencyExtensions.CurrencyRateInRubles((Currency)cbCurrency1.SelectedIndex), 2);
                 }
                 catch
                 {
@@ -51,7 +51,7 @@ namespace MoneyToolWpf
             {
                 try
                 {
-                    summa2 = Math.Round(Int32.Parse(tbSumma2.Text) * CurrencyExtension.CurrencyRateInRubles((Currency)cbCurrency2.SelectedIndex), 2);
+                    summa2 = Math.Round(Int32.Parse(tbSumma2.Text) * CurrencyExtensions.CurrencyRateInRubles((Currency)cbCurrency2.SelectedIndex), 2);
                 }
                 catch
                 {

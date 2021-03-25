@@ -47,8 +47,8 @@ namespace MoneyToolWpf
             if (a == null || b == null) return null;
             return new Money
             {
-                Summa = Math.Round(a.Summa * CurrencyExtension.CurrencyRateInRubles(a.Currency), 2)
-                + Math.Round(b.Summa * CurrencyExtension.CurrencyRateInRubles(b.Currency), 2),
+                Summa = Math.Round(a.Summa * CurrencyExtensions.CurrencyRateInRubles(a.Currency), 2)
+                + Math.Round(b.Summa * CurrencyExtensions.CurrencyRateInRubles(b.Currency), 2),
                 Currency = Currency.RUB
             };
         }
@@ -69,8 +69,8 @@ namespace MoneyToolWpf
             if (this == null || money == null)
                 throw new ArgumentNullException("Сравниваемые экземпляры типа Money не могут быть равны null!");
 
-            decimal summaInRub = Math.Round(Summa * CurrencyExtension.CurrencyRateInRubles(Currency), 2);
-            decimal othersummaInRub = Math.Round(money.Summa * CurrencyExtension.CurrencyRateInRubles(money.Currency), 2);
+            decimal summaInRub = Math.Round(Summa * CurrencyExtensions.CurrencyRateInRubles(Currency), 2);
+            decimal othersummaInRub = Math.Round(money.Summa * CurrencyExtensions.CurrencyRateInRubles(money.Currency), 2);
 
             return summaInRub > othersummaInRub ? 1 :
                 summaInRub < othersummaInRub ? -1 : 0;
