@@ -1,7 +1,7 @@
 ﻿namespace MoneyToolWpf
 {
 	public enum Currency { EUR = 0, USD = 1, RUB = 2, Неопределен = 3 }
-	public static class CurrencyExtension
+	public static class CurrencyExtensions
 	{
 		public static string GetString(this Currency type)
 		{
