@@ -1,0 +1,19 @@
+﻿<Window x:Class="MoneyToolWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MoneyToolWpf"
+        mc:Ignorable="d"
+        Title="Инструмент для работы с валютами" Height="150" Width="450">
+    <Grid Margin="0,0,0,0">
+        <TextBox Name="tbSumma1" HorizontalAlignment="Left" Height="26" Margin="10,13,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100"/>
+        <ComboBox Name="cbCurrency1" HorizontalAlignment="Left" Height="26" Margin="115,13,0,0" VerticalAlignment="Top" Width="70"/>
+        <Label Name="label1" Content="Label" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="175"/>
+        <TextBox Name="tbSumma2" HorizontalAlignment="Left" Height="26" Margin="255,13,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100"/>
+        <ComboBox Name="cbCurrency2" HorizontalAlignment="Left" Height="26" Margin="360,13,0,0" VerticalAlignment="Top" Width="70"/>
+        <Label Name="label2" Content="Label" HorizontalAlignment="Left" Margin="255,41,0,0" VerticalAlignment="Top" Width="175"/>
+        <Label Name="labelCompare" Content="Label" HorizontalAlignment="Left" Height="35" Margin="201,5,0,0" VerticalAlignment="Top" Width="45" FontWeight="Bold" FontSize="20"/>
+
+    </Grid>
+</Window>
