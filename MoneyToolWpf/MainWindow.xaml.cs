@@ -1,20 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace MoneyToolWpf
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-            
-            cbCurrency1.ItemsSource = Enum.GetValues(typeof(MoneyToolWpf.Currency));
-            cbCurrency2.ItemsSource = Enum.GetValues(typeof(MoneyToolWpf.Currency));            
+
+            List<Currency> itemsSource = new List<Currency>();
+            foreach (Currency item in Enum.GetValues(typeof(MoneyToolWpf.Currency)))
+            {
+                if (item  != Currency.Неопределен)
+                    itemsSource.Add(item);
+            };
+
+            cbCurrency1.ItemsSource = cbCurrency2.ItemsSource = itemsSource;
             tbSumma1.Text = tbSumma2.Text = "0";
             cbCurrency1.SelectedIndex = cbCurrency2.SelectedIndex = 2; // RUB
             label1.Content = label2.Content = labelCompare.Content = "";

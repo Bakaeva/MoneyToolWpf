@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoneyToolWpf"
         mc:Ignorable="d"
-        Title="Инструмент для работы с валютами" Height="150" Width="450">
+        Title="Инструмент для сравнения основных валют" Height="150" Width="450">
     <Grid Margin="0,0,0,0">
         <TextBox Name="tbSumma1" HorizontalAlignment="Left" Height="26" Margin="10,13,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100"/>
         <ComboBox Name="cbCurrency1" HorizontalAlignment="Left" Height="26" Margin="115,13,0,0" VerticalAlignment="Top" Width="70"/>
